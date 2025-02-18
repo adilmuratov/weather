@@ -1,0 +1,259 @@
+@font-face {
+    font-family: "Poppins";
+    src: url("/font/Poppins-Light.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    background: #252323;
+    font-family: "Poppins";
+}
+
+.header {
+    display: grid;
+    color: #FFFFFF;
+    
+    grid-template-columns: 40% 60%;
+}
+
+.weatherme {
+    margin-left: 67px;
+    margin-bottom: 47px;
+    font-size: 69px;
+    display: flex
+    
+}
+
+.icon_block {
+    display: grid;
+    grid-template-columns: 67px auto;
+    grid-template-rows: 210px auto;
+    padding-top: 10px;
+    align-items: center;
+}
+
+.icon {
+    position: absolute;
+    top: 10px;
+}
+
+
+
+.mini_watch {
+    font-size: 19px;
+    font-weight: 400;
+    margin-top: 40px;
+    margin-left: 240px;
+}
+
+.switch_temperature {
+    display: grid;
+    color: #FFFFFF;
+    grid-template-columns: 67px 92px 67px;
+}
+
+.celsuis_sign {
+    font-size: 30px;
+    margin-left: 15px;
+}
+
+.farangheit_sign {
+    font-size: 30px;
+    margin-left: 12px;
+}
+
+/*так как для переключателя используется флажок 
+функции будешь привязывать именно к нему, это и есть флажок*/
+
+.switch {
+    display: flex;
+    position: relative;
+    width: 92px;
+    height: 30px;
+    border-radius: 32px;
+    margin-top: 6px;
+    
+    background-color: #252323;
+}
+
+.switch__input {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+/*это фон переключателя*/
+
+.switch__slider {
+    position: absolute;
+    cursor: pointer;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 32px;
+    transition: .6s;
+    
+    background-color: #33E017;
+}
+
+/*это круг переключателя который двигается*/
+
+.switch__slider::before {
+    content: "";
+    position: absolute;
+    cursor: pointer;
+    left: 4px;
+    bottom: 2px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    transition: .6s;
+
+    background-color: #181515;
+}
+
+.switch__input:focus + .switch__slider {
+    box-shadow: 0 0 1px gray;
+}
+
+.switch__input:checked + .switch__slider {
+    background-color: #AD36CB;
+}
+
+.switch__input:checked + .switch__slider::before {
+    transform: translateX(58px);
+    -webkit-transform: translateX(58px);
+    -ms-transform: translateX(58px);
+}
+
+.mainer {
+    display: grid;
+    grid-template-columns: auto;
+}
+
+input {
+    width: 70%;
+    padding: 7px;
+    font-size: 18px;
+    margin-left: 10%;
+    border-radius: 10px;
+    background-color: #D9D9D9;
+    border: none
+}
+
+.search button {
+    border: none;
+    width: 8%;
+    background-color: #AD36CB;
+    padding: 10px;
+    margin-left: 5px;
+    font-size: 13px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.search button:hover {
+    transform: scale(1.1);
+}
+
+.weather_block {
+    display: grid;
+    width: 80%;
+    height: auto;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 32px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 138px 214px auto ;
+
+    background: linear-gradient(to bottom right, #AD36CB, #333333);
+}
+
+.city_location {
+    display: grid;
+    grid-template-columns: 150px auto;
+    grid-column: 1/5;
+}
+
+.city_mean {
+    font-size: 30px;
+    color: #FFFFFF;
+    margin-left: 28px;
+    margin-top: 35px;
+}
+
+.icon_location {
+    margin-top: 41px;
+}
+
+.date_mean {
+    font-size: 20px;
+    margin-left: 28px;
+    margin-top: 100px;
+    color: #FFFFFF;
+}
+
+.temperature {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-column: 2 / 5;
+}
+
+.temperature_mean {
+    font-size: 70px;
+    color: #FFFFFF;
+}
+
+.additional_indicators {
+    display: grid;
+    grid-column: 1 / 5;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: auto;
+}
+
+.humidity_inscription {
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+.humidity_mean {
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+.visiblity_inscription {
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+.visiblity_mean {
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+.air_pressure_inscription {
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+.air_pressure_mean {
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+.wind_inscription {
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+.wind_mean {
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+
+
+
