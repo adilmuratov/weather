@@ -6,7 +6,6 @@
     <title>Weather forecast</title>
     <link rel="stylesheet" href="main.css">
 </head>
-<p>hello</p>
 <body>
     <div class = "container">
     <div class="header">
@@ -15,61 +14,32 @@
                 <img src="img/Group 48.svg">
             </div>
             <div class="weatherme">WeatherMe</div>
-            <div class="mini_watch">something in js</div>
-        </div>
-        <div class="days_block">
-            <div class="today">Today</div>
-            <div class="tommorow">Tommorow</div>
-            <div class="monthly_forecast">Monthly Forecast</div>
-        </div>
-        <div class="switch_temperature">
-            <div class="celsuis_sign">°C</div>
-            <label class="switch">
-                <input type="checkbox" class="switch__input">
-                <span class="switch__slider"></span>
-            </label>
-            <div class="farangheit_sign">°F</div>
+            <div id="time"></div>
         </div>
         </div>
-
-
 
     <div class="mainer">
         <div class="search">
-            <input type="text" placeholder="Write a sity name...">
-        <button onclick=""getweather()>Get weather</button>
+            <input id="city" type="text" placeholder="Write a sity name...">
+            <button onclick=""getweather()>Get weather</button>
         </div>
         <div class="weather_block">
             <div class="city_location">
-                <div class="city_mean">in js</div>
-                <img class="icon_location" src="img/🦆 icon _location_.svg">
+                <div class="city_name"> <img src="img/🦆 icon _location_.svg" alt="">sityname</div>
             </div>
-            <div class="date_mean">in js date</div>
             <div class="temperature">
                 <img class="icon_temperature" src="img/🦆 icon _temperature_.svg">
                 <div class="temperature_mean">in js</div>
                 <img class="icon_clouds" src="images/icon_clouds.png">
+                <p>humidity</p>
+                <p>wind speed</p>
+                <p>vlajnost</p>
             </div>
-            </div class="additional_indicators">
-                <div class="humidity">
-                    <div class="humidity_inscription">HUMIDITY</div>
-                    <div class="humidity_mean">in js</div>
-                </div>
-                <div class="visiblity">
-                    <div class="visiblity_inscription">VISIBLITY</div>
-                    <div class="visiblity_mean">in js</div>
-                </div>
-                <div class="air_pressure">
-                    <div class="air_pressure_inscription">AIR PRESSURE</div>
-                    <div class="air_pressure_mean">in js</div>
-                </div>
-                <div class="wind">
-                    <div class="wind_inscription">WIND</div>
-                    <div class="wind_mean">in js</div>
-                </div>
+            <div class="date_mean">date</div>
+                
             </div>
         </div>
     </div>
-</div>
+    <script src="script.js"></script>
 </body>
 </html>
