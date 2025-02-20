@@ -106,14 +106,14 @@ input {
 }
 
 .icon_location {
-    margin-top: 38px;
+    margin-top: -100px;
 }
 
 .date_mean {
     font-size: 20px;
     margin-left: 25px;
     margin-bottom: 10px;
-    margin-top: -80px;
+    margin-top: -72px;
     color: #FFFFFF;
 }
 
@@ -124,54 +124,11 @@ input {
 }
 
 .temperature_mean {
-    font-size: 70px;
-    margin-top: -20px;
+    font-size: 50px;   
     color: #FFFFFF;
 }
 
-.additional_indicators {
-    display: grid;
-    grid-column: 1 / 5;
-    grid-template-columns: repeat(4, auto);
-    grid-template-rows: auto;
-}
-
-.humidity_inscription {
-    font-size: 20px;
-    color: #FFFFFF;
-}
-
-.humidity_mean {
-    font-size: 20px;
-    color: #FFFFFF;
-}
-
-.visiblity_inscription {
-    font-size: 20px;
-    color: #FFFFFF;
-}
-
-.visiblity_mean {
-    font-size: 20px;
-    color: #FFFFFF;
-}
-
-.air_pressure_inscription {
-    font-size: 20px;
-    color: #FFFFFF;
-}
-
-.air_pressure_mean {
-    font-size: 20px;
-    color: #FFFFFF;
-}
-
-.wind_inscription {
-    font-size: 20px;
-    color: #FFFFFF;
-}
-
-.wind_mean {
+.temperature p {
     font-size: 20px;
     color: #FFFFFF;
 }
