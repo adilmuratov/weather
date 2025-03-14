@@ -1,44 +1,42 @@
 <!DOCTYPE html>
-<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather forecast</title>
-    <link rel="stylesheet" href="main.css">
+    <title>WeatherMe</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class = "container">
-    <div class="header">
-        <div class="icon_block">
-            <div class="icon">
-                <img src="img/Group 48.svg">
+    <div class="container">
+        <section class="menu-section">
+            <div class="menu-icon" id="menuIcon">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
             </div>
-            <div class="weatherme">WeatherMe</div>
-            <div id="time"></div>
-        </div>
-        </div>
-
-    <div class="mainer">
-        <div class="search">
-            <input type="text" id="city" placeholder="Write a sity name...">
-            <button id="btn" onclick=""getweather()>Get weather</button>
-        </div>
-        <div class="weather_block">
-            <div class="city_location">
-                <div id="city_name" class="city_name"></div>
+            <nav class="sidebar" id="sidebar" style="display: none;">
+                <ul>
+                    <li><a href="#">Log out</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#" id="backButton">Close</a></li>
+                </ul>
+            </nav>
+        </section>
+        <section class="header-section">
+            <header>
+                <h1>WeatherMe</h1>
+                <p id="currentTime"></p>
+            </header>
+        </section>
+        <section class="search-section">
+            <div class="search-container">
+                <input type="text" id="cityInput" placeholder="Введите город">
+                <button id="searchButton">Поиск</button>
             </div>
-            <div class="temperature">
-                <img id="iconTemp" class="icon_temperature" src="img/🦆 icon _temperature_.svg" style="display:none">
-                <div id="temp" class="temperature_mean"></div>
-                <img id="icon" class="icon_clouds" src="">
-                <p id="weather" class="weather"></p>
-                <p id="wind"></p>
-                <p id="humidity"></p>
+        </section>
+        <section class="weather-section">
+            <div class="weather-info" id="weatherInfo" style="display: none;">
             </div>
-            <div id="date" class="date_mean"></div>
-                
-            </div>
-        </div>
+        </section>
     </div>
     <script src="script.js"></script>
 </body>

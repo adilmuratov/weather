@@ -1,0 +1,213 @@
+@font-face {
+    font-family: "Poppins";
+    src: url("/font/Poppins-Light.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #252323;
+
+}
+
+.container {
+    margin-left: 20%;
+    margin-right: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.menu-icon {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background: #AD36CB;
+    margin: 4px 0;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background: linear-gradient(to bottom right, #AD36CB, #333333);
+    transition: left 0.3s ease;
+    z-index: 999;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-top: 60px;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    color: white;
+    font-size: 3em;
+    margin: 0;
+}   
+
+#currentTime {
+    font-size: 1.2em;
+    color: white;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    
+}
+
+#cityInput {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#searchButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #AD36CB;
+    color: balck;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#searchButton:hover {
+    background-color: #961eb4;;
+}
+
+.weather-info {
+    width: 30em;
+    background: linear-gradient(to bottom right, #AD36CB, #333333);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: white;
+}
+
+.weather-info h2 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.weather-info img {
+    width: 100px;
+    height: 100px;
+}
+
+.weather-info p {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+/* Адаптивность */
+
+@media (max-width: 992px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    .search-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #cityInput {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .weather-info {
+        width: 90%;
+    }
+
+    .sidebar {
+        width: 20%;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    .search-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #cityInput {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .weather-info {
+        width: 90%;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1em;
+    }
+
+    .weather-info h2 {
+        font-size: 1em;
+    }
+
+    .weather-info img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .weather-info p {
+        font-size: 1em;
+    }
+
+    .sidebar {
+        width: 100%;
+        left: -100%;
+    }
+}

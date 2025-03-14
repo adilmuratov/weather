@@ -1,62 +1,76 @@
-function CurrentTime() {
-    let now = new Date();
-    document.getElementById("time").textContent = now.toLocaleTimeString();
-}
+document.addEventListener('DOMContentLoaded', function() {
+    const menuIcon = document.getElementById('menuIcon');
+    const sidebar = document.getElementById('sidebar');
+    const currentTime = document.getElementById('currentTime');
+    const cityInput = document.getElementById('cityInput');
+    const searchButton = document.getElementById('searchButton');
+    const weatherInfo = document.getElementById('weatherInfo');
+    const backButton = document.getElementById('backButton');
 
-CurrentTime();
-setInterval(CurrentTime, 1000);
+    // Открытие меню
+    menuIcon.addEventListener('click', function() {
+        sidebar.style.left = sidebar.style.left === '0px' ? '-250px' : '0px';
+        document.getElementById("sidebar").style.display = "block";
+        document.getElementById("menuIcon").style.display = "none";
+    });
 
-const API_KEY = "95e08f8571371d61194d35fe63944e8f";
+    // Кнопка "Назад"
+    backButton.addEventListener('click', function() {
+        sidebar.style.left = '-250px';
+        document.getElementById("sidebar").style.display = "none";
+        document.getElementById("menuIcon").style.display = "block";
+    });
 
-
-async function getWeather() {
-    const city = document.getElementById("city").value.trim();
-    if (!city) {
-        alert("error");
-        return;
+    // Текущее время
+    function updateTime() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        currentTime.textContent = `${hours}:${minutes}:${seconds}`;
     }
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
+    setInterval(updateTime, 1000);
+    updateTime();
 
-    try {
-        const response = await fetch(url);
-        const data = await response.json();
-
-        if (response.ok) {
-            const country = data.sys.country;
-            const temperature = data.main.temp;
-            const iconCode = data.weather[0].icon;
-            const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
-            const humidity = data.main.humidity;
-            const windSpeed = data.wind.speed;
-            const description = data.weather[0].description
-            const timestamp = data.dt * 1000;
-            const date = new Date(timestamp);
-            const formattedDate = date.toLocaleString("en-GB", {
-                month: "long",
-                day: "numeric"
-            })
-
-            document.getElementById("iconTemp").style.display = "block";
-            document.getElementById("date").textContent = `${formattedDate}`;
-            document.getElementById("city_name").textContent = `${data.name}, ${country}`;
-            document.getElementById("temp").textContent = `${temperature}°C`;
-            document.getElementById("humidity").textContent = `Humidity: ${humidity}%`;
-            document.getElementById("wind").textContent =  `Wind speed: ${windSpeed} m/s`;
-            document.getElementById("weather").textContent = `${description}`;
-            document.getElementById("icon").src = iconUrl;
-            document.getElementById("icon").style.filter = "brightness(2)";
-        } else {
-            console.log("Ошибка:", data.message);
+    // Запрос погоды
+    searchButton.addEventListener('click', function() {
+        const city = cityInput.value;
+        if (city) {
+            fetchWeather(city);
         }
-    } catch (error) {
-        console.error("Ошибка запроса:", error);
+    });
+
+    async function fetchWeather(city) {
+        const apiKey = '95e08f8571371d61194d35fe63944e8f';
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`; // Изменено на metric для Цельсия
+
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+            displayWeather(data);
+        } catch (error) {
+            console.error(error);
+        }
     }
-}
 
-document.getElementById("btn").addEventListener("click", getWeather);
+    function displayWeather(data) {
+        document.getElementById("weatherInfo").style.display = "block";
+        const cityName = data.name;
+        const countryCode = data.sys.country;
+        const temperature = data.main.temp;
+        const weatherIcon = data.weather[0].icon;
+        const weatherDescription = data.weather[0].description;
+        const humidity = data.main.humidity;
+        const windSpeed = data.wind.speed;
 
-document.getElementById("city").addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-        getWeather();
+        const iconUrl = `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
+
+        weatherInfo.innerHTML = `
+            <h2>${cityName}, ${countryCode}</h2>
+            <img src="${iconUrl}" alt="${weatherDescription}">
+            <p>Temperature: ${temperature}°C</p>
+            <p>Humidity: ${humidity}%</p>
+            <p>windSpeed: ${windSpeed} m/s</p>
+        `;
     }
 });
