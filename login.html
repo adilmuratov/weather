@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+        <div id="loginForm">
+            <h1>WELCOME</h1>
+            <input type="text" placeholder="Login" id="login">
+            <input type="text" placeholder="Password" id="password">
+            <button id="loginButton">Log in</button>
+            <div calss="toggle" onclick="toggleForm()">Don't have an account? Sign in</div>
+        </div>
+        <div id="registerForm" style="display: none;">
+            <h1>REGISTER</h1>
+            <input type="text" placeholder="Login" id="login">
+            <input type="text" placeholder="Email" id="email">
+            <input type="text" placeholder="Password" id="password">
+            <button id="registerButton">Sign in</button>
+            <div calss="toggle" onclick="toggleForm()">Already have an account? Log in</div>
+        </div>
+    </div>
+    <script>
+        function toggleForm() {
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            if (loginForm.style.display === 'none') {
+                loginForm.style.display = 'block';
+                registerForm.style.display = 'none';
+            } else {
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

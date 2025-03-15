@@ -1,0 +1,63 @@
+@font-face {
+    font-family: "Poppins";
+    src: url("/font/Poppins-Light.woff2") format("woff2");
+    font-weight: 400;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #252323;
+}
+
+input {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+.container {
+    color: #252323;
+    margin-top: 100px;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-bottom: auto;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(to bottom right, #AD36CB, #333333);
+    text-align: center;
+}
+
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#loginButton {
+    background: #252323;
+    padding-left: auto;
+    padding-right: auto;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#loginButton:hover {
+    transform: scale(1.05);
+}
