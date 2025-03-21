@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById("menuIcon").style.display = "none";
     });
 
-    // Кнопка "Назад"
+    // Кнопка назад
     backButton.addEventListener('click', function() {
         sidebar.style.left = '-250px';
         document.getElementById("sidebar").style.display = "none";

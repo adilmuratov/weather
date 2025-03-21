@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>История поиска</title>
+    <link rel="stylesheet" href="history.css">
+</head>
+<body>
+
+    <div class="container hidden" id="historyContainer">
+        <h2>Search history</h2>
+        <ul class="history-list" id="historyList"></ul>
+    </div>
+
+    <script>
+        // Временные данные вместо БД
+        const searchHistory = [
+            { query: "1", created_at: "2025-03-21 12:30" },
+            { query: "2", created_at: "2025-03-21 12:15" },
+            { query: "3", created_at: "2025-03-21 12:00" },
+            { query: "4", created_at: "2025-03-21 11:45" },
+            { query: "5", created_at: "2025-03-21 11:30" },
+            { query: "6", created_at: "2025-03-21 11:15" },
+            { query: "7", created_at: "2025-03-21 11:00" },
+            { query: "8", created_at: "2025-03-21 10:45" },
+            { query: "9", created_at: "2025-03-21 10:30" },
+            { query: "10", created_at: "2025-03-21 10:15" }
+        ];
+
+        const historyContainer = document.getElementById("historyContainer");
+        const historyList = document.getElementById("historyList");
+
+        function displayHistory() {
+            if (searchHistory.length === 0) {
+                historyContainer.classList.add("hidden");
+                return;
+            }
+
+            historyContainer.classList.remove("hidden");
+            historyList.innerHTML = ""; // Очищаем список перед добавлением
+
+            searchHistory.forEach(({ query, created_at }) => {
+                const li = document.createElement("li");
+                li.className = "history-item";
+                li.innerHTML = `<strong>${query}</strong><br><span class="timestamp">${created_at}</span>`;
+                historyList.appendChild(li);
+            });
+        }
+
+        displayHistory(); // Вызываем при загрузке страницы
+    </script>
+
+</body>
+</html>
