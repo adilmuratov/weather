@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "pg": "^8.14.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "name": "weather",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adilmuratov/weather.git"
+  },
+  "author": "Adil & Seinasyr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adilmuratov/weather/issues"
+  },
+  "homepage": "https://github.com/adilmuratov/weather#readme",
+  "description": ""
+}
