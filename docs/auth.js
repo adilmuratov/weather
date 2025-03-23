@@ -2,6 +2,10 @@ function loginSender() {
     const userLogin = document.getElementById("loginLogin").value;
     const userPassword = document.getElementById("loginPassword").value;
 
+    if (userLogin === "" || userPassword === ""){
+        return console.log("Fill in the values");
+    };
+
     const data_login = {
         user_login: userLogin,
         user_password: userPassword
@@ -22,6 +26,10 @@ function registerSender() {
     const userLogin = document.getElementById("registerLogin").value;
     const userEmail = document.getElementById("registerEmail").value;
     const userPassword = document.getElementById("registerPassword").value;
+
+    if (userLogin === "" || userEmail === "" || userPassword){
+        return alert("Fill in the values");
+    };
 
     const data_register = {
         user_login: userLogin,
