@@ -2,8 +2,8 @@ function loginSender() {
     const userLogin = document.getElementById("loginLogin").value;
     const userPassword = document.getElementById("loginPassword").value;
 
-    if (userLogin === "" || userPassword === ""){
-        return console.log("Fill in the values");
+    if (userLogin === "" || userPassword === "") {
+        return alert("Fill in the values");
     };
 
     const data_login = {
@@ -11,15 +11,23 @@ function loginSender() {
         user_password: userPassword
     };
 
-    fetch("http://localhost:8080/api/login", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(data_login)
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .then(alert("You succesful logined!"))
-    .catch(error => console.error("Ошибка:", error));
+    async function checkData() {
+        try {
+            const response = await fetch("http://localhost:8080/api/login", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(data_login)
+            });
+            const data = await response.json();
+            alert(data);
+            window.location.href = "http://127.0.0.1:5500/docs/index.html";
+            alert("You succesful logined!");
+            console.log("Back data:", data);
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    }
+    checkData();
 }
 
 function registerSender() {
@@ -27,7 +35,7 @@ function registerSender() {
     const userEmail = document.getElementById("registerEmail").value;
     const userPassword = document.getElementById("registerPassword").value;
 
-    if (userLogin === "" || userEmail === "" || userPassword){
+    if (userLogin === "" || userEmail === "" || userPassword === "") {
         return alert("Fill in the values");
     };
 
@@ -37,13 +45,22 @@ function registerSender() {
         user_password: userPassword
     };
 
-    fetch("http://localhost:8080/api/register", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(data_register)
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .then(alert("You succesful registered!"))
-    .catch(error => console.error("Ошибка:", error));
+    async function sendData() {
+        try {
+            const response = await fetch("http://localhost:8080/api/register", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(data_register)
+            });
+            const data = await response.json();
+            window.location.href = "http://127.0.0.1:5500/docs/index.html";
+            alert("You succesful registered!");
+            console.log("Back data:", data);
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    }
+    sendData();
+
+
 }
