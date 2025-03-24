@@ -10,6 +10,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/api", authRouter);
+app.use((req, res, next) => {
+    //TO DO check cookie
+    return next();
+});
+
 app.use("/api", userHistoryRouter);
 
 app.listen(PORT, () => console.log(`server started on post ${PORT}`));

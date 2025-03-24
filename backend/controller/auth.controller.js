@@ -22,9 +22,13 @@ class AuthController {
         try {
             const {user_login, user_password} = req.body;
             const result = await db.query(
-                "SELECT 1 FROM users WHERE user_login = $1 AND user_password = $2",
+                "SELECT * FROM users WHERE user_login = $1 AND user_password = $2",
                 [user_login, user_password]
             );
+            //TO DO check result 
+            //TO DO random string
+            //res.cookie('cookieName', 'cookieValue')
+            
             console.log(result);
             res.json(result);
         } catch(error) {
