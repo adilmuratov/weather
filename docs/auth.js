@@ -19,7 +19,9 @@ function loginSender() {
                 body: JSON.stringify(data_login)
             });
             const data = await response.json();
-            alert(data);
+            if (data.rowCount === 0) {
+                return alert("User not found");
+            };
             window.location.href = "http://127.0.0.1:5500/docs/index.html";
             alert("You succesful logined!");
             console.log("Back data:", data);
@@ -53,6 +55,9 @@ function registerSender() {
                 body: JSON.stringify(data_register)
             });
             const data = await response.json();
+            if (data.rowCount === 1) {
+                return alert("User already exist");
+            };
             window.location.href = "http://127.0.0.1:5500/docs/index.html";
             alert("You succesful registered!");
             console.log("Back data:", data);
@@ -61,6 +66,4 @@ function registerSender() {
         }
     }
     sendData();
-
-
 }

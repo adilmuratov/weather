@@ -8,15 +8,12 @@ class AuthController {
                 "SELECT 1 FROM users WHERE user_login = $1",
                 [user_login]
             );
-            if (checker.rowCount === 0) {
-                const newUser = await db.query(
-                    "INSERT INTO users (user_login, user_email, user_password) VALUES ($1, $2, $3) RETURNING *",
-                    [user_login, user_email, user_password]
-                );
-                res.json(newUser.rows);
-            } else {
-                res.json("User with that login already exists");
-            }
+            const newUser = await db.query(
+                "INSERT INTO users (user_login, user_email, user_password) VALUES ($1, $2, $3) RETURNING *",
+                [user_login, user_email, user_password]
+            );
+            res.json(newUser);
+            
         } catch (error) {
             console.error("Error in registerUser", error.message);
         }
