@@ -19,11 +19,16 @@ function loginSender() {
                 body: JSON.stringify(data_login)
             });
             const data = await response.json();
-            if (data.rowCount === 0) {
-                return alert("User not found");
+            
+            if (!data.userPresence) {
+                alert("User not founded!");
+            } else if (data.passwordCorrect) {
+                alert("You succesful logined!");
+                window.location.href = "http://127.0.0.1:5500/docs/index.html";
+            } else {
+                alert("You not succesful logined, check your password!");
             };
-            window.location.href = "http://127.0.0.1:5500/docs/index.html";
-            alert("You succesful logined!");
+
             console.log("Back data:", data);
         } catch (error) {
             console.error("Error:", error);
@@ -66,4 +71,29 @@ function registerSender() {
         }
     }
     sendData();
+}
+
+function logoutSender() {
+    const data_logout = {
+        logoutInfo: true
+    };
+    async function logout() {
+        try {
+            const response = await fetch("http://localhost:8080/api/logout", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(data_logout)
+            });
+            const data = await response.json();
+            if (data.succes) {
+                alert("You succesful logouted!");
+                console.log(data);
+            } else {
+                alert("You not succesful logouted!");
+            }
+        } catch(error) {
+            console.error("Error:", error);
+        }
+    }
+    logout();
 }
